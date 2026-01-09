@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<article class="max-w-3xl mx-auto px-6 py-16">
+
+    <h1 class="text-4xl font-bold mb-4">
+        {{ post.title }}
+    </h1>
+
+    <p class="text-sm text-gray-500 mb-8">
+        {{ post.created_at|date:"F j, Y" }}
+    </p>
+
+    {% if post.cover_image %}
+    <img
+        src="{{ post.cover_image.url }}"
+        alt="{{ post.title }}"
+        class="w-full rounded-lg mb-8"
+    />
+    {% endif %}
+
+    <div class="prose max-w-none">
+        {{ post.content|linebreaks }}
+    </div>
+
+</article>
+{% endblock %}

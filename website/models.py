@@ -63,9 +63,9 @@ class BlogPost(models.Model):
 
 
     def save(self, *args, **kwargs):
-        # Automatically generate slug if empty
         if not self.slug:
-            self.slug = slugify(self.title)
+            base_slug = slugify(self.title)
+            self.slug = f"{base_slug}-{uuid.uuid4().hex[:6]}"
         super().save(*args, **kwargs)
     
 
