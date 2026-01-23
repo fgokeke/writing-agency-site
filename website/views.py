@@ -1,5 +1,8 @@
-from django.shortcuts import render
-from .models import Service, Testimonial, BlogPost
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import Service, Testimonial, BlogPost, ContactMessage
 from .forms import ContactForm
 # Create your views here.
 
@@ -58,8 +61,43 @@ def contact(request):
     """
     Displays and processes the contact form.
     """
-    form = ContactForm()
+    if request.method == "POST":
+        form = ContactForm(request.POST)
 
-    return render(request, "contact.html", {
-        "form": form
-    })
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
+
+            # Save message to database
+            ContactMessage.objects.create(
+                name=name,
+                email=email,
+                message=message
+            )
+
+            # Send email (console in dev)
+
+            send_mail(
+                subject=f"New Contact Message from {name}",
+                message=(
+                    f"Name: {name}\n"
+                    f"Email: {email}\n\n"
+                    f"Message:\n{message}"
+                ),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=["your-email@example.com"],
+            )
+
+            # User feedback
+            messages.success(
+                request,
+                "Thank you for reaching out. We’ll get back to you shortly."
+            )
+
+            return redirect("contact")
+
+    else:
+        form = ContactForm()
+
+    return render(request, "contact.html", {"form": form})

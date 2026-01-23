@@ -1,6 +1,32 @@
 {% extends "base.html" %}
 {% block title %}Blog{% endblock %}
 
+{% block meta %}
+<meta name="description"
+      content="Read insights, tips, and expert articles from Distinct Writing Agency on writing, content strategy, branding, and professional communication.">
+
+<!-- Open Graph -->
+<meta property="og:title"
+      content="Blog & Insights | Distinct Writing Agency">
+<meta property="og:description"
+      content="Explore expert articles and insights on writing, branding, SEO content, and professional communication from Distinct Writing Agency.">
+<meta property="og:type" content="website">
+<meta property="og:url"
+      content="https://distinctwriting.com/blog/">
+<meta property="og:image"
+      content="https://distinctwriting.com/static/images/blog-og.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+      content="Blog & Insights | Distinct Writing Agency">
+<meta name="twitter:description"
+      content="Expert insights on writing, branding, and content strategy from Distinct Writing Agency.">
+<meta name="twitter:image"
+      content="https://distinctwriting.com/static/images/blog-og.png">
+{% endblock %}
+
+
 {% block content %}
 <section class="max-w-6xl mx-auto px-6 py-16">
 

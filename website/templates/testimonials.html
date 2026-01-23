@@ -3,9 +3,34 @@
 
 {% block title %}Testimonials | Distinct Writing Agency {% endblock %}
 
+{% block meta %}
+<meta name="description"
+      content="Read what clients say about working with Distinct Writing Agency. Real testimonials highlighting our professionalism, creativity, and results.">
+
+<!-- Open Graph -->
+<meta property="og:title"
+      content="Client Testimonials | Distinct Writing Agency">
+<meta property="og:description"
+      content="Discover how Distinct Writing Agency has helped clients achieve clarity, credibility, and results through professional writing services.">
+<meta property="og:type" content="website">
+<meta property="og:url"
+      content="https://distinctwriting.com/testimonials/">
+<meta property="og:image"
+      content="https://distinctwriting.com/static/images/testimonials-og.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+      content="Client Testimonials | Distinct Writing Agency">
+<meta name="twitter:description"
+      content="See what our clients say about our professional writing and content services.">
+<meta name="twitter:image"
+      content="https://distinctwriting.com/static/images/testimonials-og.png">
+{% endblock %}
+
 {% block content %}
 
-<section class="grid md:grid-cols-2 gap-8">
+<section class="mb-12">
     <h1 class="text-4xl font-bold text-center mb-12">
         What Our Clients Say
     </h1>

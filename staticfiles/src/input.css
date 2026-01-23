@@ -1,0 +1,13 @@
+/* This is your "source" CSS file. 
+   It's small, because Tailwind generates everything for you. */
+
+
+/* Tailwind Base styles (resets and sensible defaults). */
+@tailwind base;
+
+/* Tailwind Components (pre-built patterns, empty unless you extend). */
+@tailwind components;
+
+
+/* Tailwind Utilities (the bulk of Tailwind: p-4, bg-blue-500, etc.). */
+@tailwind utilities;

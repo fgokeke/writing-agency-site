@@ -15,6 +15,12 @@ module.exports = {
       //  brand: "#1da1f2"
       // }
     },
+    extend: {
+      colors: {
+        ash: "#6B7280", // medium ash gray
+        "ash-dark": "#4B5563",
+      },
+    },
   },
   // Tailwind plugins can go here (forms, typography, etc.)
   plugins: [],
