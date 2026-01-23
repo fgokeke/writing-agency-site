@@ -1,5 +1,11 @@
 from django.db import models
 from django.utils.text import slugify
+from django.core.exceptions import ValidationError
+
+def validate_file_type(file):
+    valid_extensions = ['.svg', '.png', '.jpg', '.jpeg']
+    if not any(file.name.lower().endswith(ext) for ext in valid_extensions):
+        raise ValidationError("Unsupported file type. Allowed types: SVG, PNG, JPG.")
 
 
 class Service(models.Model):
@@ -10,10 +16,12 @@ class Service(models.Model):
     """
     title = models.CharField(max_length=100) # Short title of the service
     description = models.TextField()         # Detailed explanation of the service
-    icon = models.CharField(
-        max_length=100,
+    icon = models.FileField(
+        upload_to="services/icons",
         blank=True,
-        help_text="Optional: store an icon class (e.g., FontAwesome) or an image URL."
+        null=True,
+        validators=[validate_file_type],
+        help_text="Optional icon for the service (SVG, PNG, or JPG recommended)."
     )
 
     def __str__(self):

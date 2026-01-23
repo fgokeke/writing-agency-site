@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Disallow: /admin/
+Disallow: /static/
+Disallow: /media/
+Allow: /
+
+# Sitemap location
+Sitemap: https://distinctwriting.com/sitemap.xml

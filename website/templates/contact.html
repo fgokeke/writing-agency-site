@@ -1,6 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Contact Us{% endblock %}
 
+{% block meta %}
+<meta name="description"
+      content="Contact Distinct Writing Agency for professional writing services, consultations, and custom quotes. Let’s bring your ideas to life.">
+
+<!-- Open Graph -->
+<meta property="og:title"
+      content="Contact Distinct Writing Agency">
+<meta property="og:description"
+      content="Get in touch with Distinct Writing Agency for professional writing, editing, and content services tailored to your needs.">
+<meta property="og:type" content="website">
+<meta property="og:url"
+      content="https://distinctwriting.com/contact/">
+<meta property="og:image"
+      content="https://distinctwriting.com/static/images/contact-og.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+      content="Contact Distinct Writing Agency">
+<meta name="twitter:description"
+      content="Reach out to Distinct Writing Agency for consultations, quotes, and professional writing support.">
+<meta name="twitter:image"
+      content="https://distinctwriting.com/static/images/contact-og.png">
+{% endblock %}
+
 {% block content %}
 <section class="max-w-4xl mx-auto px-6 py-20">
 
@@ -8,6 +33,14 @@
     <h1 class="text-4xl font-bold text-center mb-12">
         Get in Touch
     </h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="mb-6 p-4 rounded-lg text-white bg-green-600 text-center">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 
     <!-- Contact Form -->
     <form method="post" class="bg-white p-8 rounded-lg shadow-md space-y-6">
@@ -34,7 +67,18 @@
         <!-- Submit Button -->
         <button
             type="submit"
-            class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition"
+            style="
+                width: 100%;
+                background-color: #6B7280;
+                color: white;
+                padding: 0.75rem 1rem;
+                border-radius: 0.5rem;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            "
+            onmouseover="this.style.backgroundColor='#4B5563'"
+            onmouseout="this.style.backgroundColor='#6B7280'"
         >
             Send Message
         </button>

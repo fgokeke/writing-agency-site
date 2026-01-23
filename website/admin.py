@@ -43,6 +43,6 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
-    list_display = ("name", "email", "sent_at") 
+    list_display = ("name", "email", "sent_at")
     search_fields = ("name", "email", "message")
     readonly_fields = ("sent_at",)  # Prevent editing timestamps 

@@ -1,6 +1,43 @@
 {% extends "base.html" %}
 {% block title %}{{ post.title }}{% endblock %}
 
+{% block meta %}
+<meta name="description"
+      content="{{ post.content|striptags|truncatewords:25 }}">
+
+<!-- Open Graph -->
+<meta property="og:title"
+      content="{{ post.title }}">
+<meta property="og:description"
+      content="{{ post.content|striptags|truncatewords:25 }}">
+<meta property="og:type" content="article">
+<meta property="og:url"
+      content="https://distinctwriting.com/blog/{{ post.slug }}/">
+
+{% if post.cover_image %}
+<meta property="og:image"
+      content="https://distinctwriting.com{{ post.cover_image.url }}">
+{% else %}
+<meta property="og:image"
+      content="https://distinctwriting.com/static/images/blog-og.png">
+{% endif %}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+      content="{{ post.title }}">
+<meta name="twitter:description"
+      content="{{ post.content|striptags|truncatewords:25 }}">
+
+{% if post.cover_image %}
+<meta name="twitter:image"
+      content="https://distinctwriting.com{{ post.cover_image.url }}">
+{% else %}
+<meta name="twitter:image"
+      content="https://distinctwriting.com/static/images/blog-og.png">
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <article class="max-w-3xl mx-auto px-6 py-16">
 

@@ -3,6 +3,32 @@
 
 {% block title %}Home | Distinct Writing Agency{% endblock %}
 
+{% block meta %}
+<meta name="description"
+      content="Distinct Writing Agency helps individuals and businesses stand out with professional writing, editing, and career acceleration services.">
+
+<!-- Open Graph -->
+<meta property="og:title"
+      content="Distinct Writing Agency – Helping You Stand Out">
+<meta property="og:description"
+      content="Professional writing services including copywriting, academic writing, business writing, and career acceleration.">
+<meta property="og:type" content="website">
+<meta property="og:url"
+      content="https://distinctwriting.com/">
+<meta property="og:image"
+      content="https://distinctwriting.com/static/images/home-og.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+      content="Distinct Writing Agency – Helping You Stand Out">
+<meta name="twitter:description"
+      content="Professional writing services that inspire, engage, and deliver results.">
+<meta name="twitter:image"
+      content="https://distinctwriting.com/static/images/home-og.png">
+{% endblock %}
+
+
 {% block content %}
 
 <!-- 🌟 HERO SECTION -->
@@ -18,9 +44,21 @@
           </p>
           <!-- Call to Action Button -->
            <a href="/contact/"
-             class="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition">
-             Get a Free Consultation/Quote
-            </a>
+              style="
+                background-color: #6B7280; 
+                color: white; 
+                padding: 0.75rem 2rem; 
+                border-radius: 0.5rem; 
+                display: inline-block; 
+                font-weight: 600; 
+                text-align: center; 
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+                transition: background-color 0.3s ease;
+              "
+              onmouseover="this.style.backgroundColor='#4B5563'" 
+              onmouseout="this.style.backgroundColor='#6B7280'">
+              Get a Free Consultation/Quote
+           </a>
     </div>
 </section>
 
@@ -34,21 +72,21 @@
 
       <!-- Service 1 -->
       <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
-        <img src="{% static 'icons/content.svg' %}" alt="Career Acceleration" class="h-12 mb-4">
+        <img src="{% static 'icons/career.svg' %}" alt="Career Acceleration" class="h-12 mb-4">
         <h3 class="text-xl font-semibold mb-2">Career Acceleration</h3>
         <p class="text-gray-600">Personal brand statements, executive bios, LinkedIn profile optimization, CV and resume writing, tailored cover letters, professional portfolios, and interview prep tailored for career progress.</p>
       </div>
 
       <!-- Service 2 -->
       <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
-        <img src="{% static 'icons/content.svg' %}" alt="Book Writing and Editing" class="h-12 mb-4">
+        <img src="{% static 'icons/book.svg' %}" alt="Book Writing and Editing" class="h-12 mb-4">
         <h3 class="text-xl font-semibold mb-2">Book Writing, Editing & Proofreading</h3>
         <p class="text-gray-600">Write and polish your manuscripts with clarity, tone, and style for maximum impact.</p>
       </div>
 
       <!-- Service 3 -->
       <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
-        <img src="{% static 'icons/content.svg' %}" alt="Academic Writing" class="h-12 mb-4">
+        <img src="{% static 'icons/academic.svg' %}" alt="Academic Writing" class="h-12 mb-4">
         <h3 class="text-xl font-semibold mb-2">Academic Writing</h3>
         <p class="text-gray-600">Essay writing, research papers, literature reviews, dissertations and theses, research proposals, reflective reports, case studies, annotated bibliographies, academic editing and proofreading, personal statements, statement of purpose, 
           coursework assistance, presentation scripts, academic CVs.</p>
@@ -56,7 +94,7 @@
 
       <!-- Service 4 -->
       <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
-        <img src="{% static 'icons/content.svg' %}" alt="Business Writing" class="h-12 mb-4">
+        <img src="{% static 'icons/business.svg' %}" alt="Business Writing" class="h-12 mb-4">
         <h3 class="text-xl font-semibold mb-2">Business Writing</h3>
         <p class="text-gray-600">Business plans, company profiles, proposals and tenders, pitch decks, business reports, marketing materials, product descriptions, website copy, 
           corporate newsletters, standard operating procedures (SOPs), business correspondence, policy documents, training manuals, white papers.</p>
@@ -64,9 +102,16 @@
 
       <!-- Service 5 -->
       <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
-        <img src="{% static 'icons/content.svg' %}" alt="Content Writing" class="h-12 mb-4">
+        <img src="{% static 'icons/content-writing.png' %}" alt="Content Writing" class="h-12 mb-4">
         <h3 class="text-xl font-semibold mb-2">Content Writing</h3>
-        <p class="text-gray-600">Professional blog posts, SEO articles, and website copy tailored for career progress.</p>
+        <p class="text-gray-600">Professional blog posts, SEO articles, and website copy tailored for business and professional progress.</p>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
+        <img src="{% static 'icons/scriptwriting.png' %}" alt="Scriptwriting" class="h-12 mb-4">
+        <h3 class="text-xl font-semibold mb-2">Scriptwriting</h3>
+        <p class="text-gray-600">We craft engaging scripts for speeches, videos, skits, podcasts, and presentations—designed for clear delivery, strong audience connection, and lasting impact.</p>
       </div>
 
      </div>
@@ -106,11 +151,18 @@
 
 
 <!-- 📣 CALL TO ACTION -->
- <section class="bg-blue-600 py-16 text-center text-white">
+ <section 
+    style="
+      background-color: #6B7280; 
+      color: white; 
+      padding: 4rem 0; 
+      text-align: center;
+    "
+  >
   <h2 class="text-3xl font-bold mb-4">Ready to elevate your brand with words?</h2>
   <p class="mb-8 text-lg">Let’s create powerful content that connects and converts.</p>
   <a href="/contact/"
-     class="inline-block bg-white text-blue-600 px-8 py-3 font-semibold rounded-lg hover:bg-gray-100 transition">
+     class="inline-block bg-white text-gray-900 px-8 py-3 font-semibold rounded-lg hover:bg-gray-100 transition">
      Contact Us Today
   </a>
  </section>
