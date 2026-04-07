@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
+import urllib.parse
 from .models import Service, Testimonial, BlogPost, ContactMessage
 from .forms import ContactForm
 # Create your views here.
@@ -76,26 +77,21 @@ def contact(request):
                 message=message
             )
 
-            # Send email (console in dev)
+            # Redirect to WhatsApp
+            whatsapp_number = "2348131953558"
 
-            send_mail(
-                subject=f"New Contact Message from {name}",
-                message=(
-                    f"Name: {name}\n"
-                    f"Email: {email}\n\n"
-                    f"Message:\n{message}"
-                ),
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=["your-email@example.com"],
-            )
+            wa_text = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+            encoded_text = urllib.parse.quote(wa_text)
+            whatsapp_url = f"https://wa.me/{whatsapp_number}?text={encoded_text}"
 
-            # User feedback
+            # User feedback (though the redirect leaves the site immediately)
             messages.success(
                 request,
-                "Thank you for reaching out. We’ll get back to you shortly."
+                "Redirecting to WhatsApp to send your message..."
             )
 
-            return redirect("contact")
+            # Execute the external redirect
+            return redirect(whatsapp_url)
 
     else:
         form = ContactForm()
