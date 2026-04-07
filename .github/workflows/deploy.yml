@@ -29,13 +29,16 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            set -e
+            
             cd /home/fg/apps/distinct-writing/writing-agency-site
             
             echo "📥 Pulling latest code..."
+            git reset --hard
             git pull origin main
 
             echo "🐍 Activating virtual environment..."
-            source ../venv/bin/activate
+            source /home/fg/apps/distinct-writing/venv/bin/activate
 
             echo "📦 Installing dependencies..."
             pip install -r requirements.txt
